@@ -1,11 +1,20 @@
-﻿* {
+* {
   box-sizing: border-box;
 }
 
+/* Chiang Mai CD Supply brand palette (from CI guideline) */
 :root {
+  --brand-blue: #2e4897;      /* R046 G072 B151 — primary */
+  --brand-navy: #2b388f;      /* R043 G056 B143 — dark */
+  --brand-blue-2: #324b9d;    /* R050 G075 B157 */
+  --brand-cyan: #0080c4;      /* R000 G128 B196 — accent */
+  --brand-teal: #38bba8;      /* R056 G187 B168 — accent */
+  --brand-ink: #1c2553;
+  --brand-surface: #f3f6fb;
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #111827;
-  background: #f4f6f9;
+  color: var(--brand-ink);
+  background: var(--brand-surface);
 }
 
 body {
@@ -15,8 +24,9 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 40%),
-    #f4f6f9;
+  background: radial-gradient(circle at top left, rgba(46, 72, 151, 0.14), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(56, 187, 168, 0.14), transparent 45%),
+    var(--brand-surface);
 }
 
 .upload-container {
@@ -25,14 +35,27 @@ body {
   background: #ffffff;
   padding: 32px;
   border-radius: 20px;
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  border-top: 4px solid var(--brand-teal);
+  box-shadow: 0 24px 80px rgba(43, 56, 143, 0.14);
+}
+
+.brand-logo {
+  display: block;
+  margin: 0 auto 18px;
+  width: 150px;
+  height: auto;
+}
+
+.brand-logo--small {
+  width: 96px;
 }
 
 h2 {
   margin-top: 0;
   margin-bottom: 8px;
-  color: #111827;
+  color: var(--brand-navy);
   font-size: 26px;
+  text-align: center;
 }
 
 p {
@@ -40,6 +63,7 @@ p {
   color: #4b5563;
   font-size: 15px;
   line-height: 1.6;
+  text-align: center;
 }
 
 .form-group {
@@ -50,7 +74,7 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #374151;
+  color: var(--brand-blue-2);
   font-size: 14px;
 }
 
@@ -62,7 +86,7 @@ input[type='file'] {
   border-radius: 12px;
   border: 1px solid #d1d5db;
   background: #f8fafc;
-  color: #111827;
+  color: var(--brand-ink);
   font-size: 15px;
 }
 
@@ -70,8 +94,8 @@ input[type='email']:focus,
 input[type='password']:focus,
 input[type='file']:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  border-color: var(--brand-cyan);
+  box-shadow: 0 0 0 4px rgba(0, 128, 196, 0.15);
 }
 
 button,
@@ -83,39 +107,41 @@ button.secondary {
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.18s ease, background-color 0.18s ease;
+  transition: transform 0.18s ease, background-color 0.18s ease, filter 0.18s ease;
 }
 
 button {
-  background: #2563eb;
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-cyan) 100%);
   color: #ffffff;
 }
 
 button:hover,
 button.secondary:hover {
   transform: translateY(-1px);
+  filter: brightness(1.06);
 }
 
 button.secondary {
-  background: #f3f4f6;
-  color: #111827;
+  background: #eef1f9;
+  color: var(--brand-navy);
   margin-bottom: 20px;
 }
 
 #drop {
   margin-top: 18px;
   padding: 28px 18px;
-  border: 2px dashed #cbd5e1;
+  border: 2px dashed rgba(46, 72, 151, 0.35);
   border-radius: 16px;
   text-align: center;
-  color: #4b5563;
+  color: var(--brand-blue-2);
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-#drop:hover {
-  border-color: #2563eb;
-  background-color: #eff6ff;
+#drop:hover,
+#drop.over {
+  border-color: var(--brand-teal);
+  background-color: rgba(56, 187, 168, 0.1);
 }
 
 #uploadBtn {
@@ -132,8 +158,9 @@ button.secondary {
   padding: 10px 14px;
   margin-bottom: 10px;
   border-radius: 12px;
-  background: #f8fafc;
-  color: #111827;
+  background: #f4f7fc;
+  border-left: 3px solid var(--brand-teal);
+  color: var(--brand-ink);
   font-size: 14px;
 }
 
@@ -160,11 +187,112 @@ button.secondary {
 #readyStatus {
   margin-top: 12px;
   font-weight: 600;
+  color: var(--brand-teal);
 }
 
 .file-item {
   padding: 10px;
   margin-top: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(46, 72, 151, 0.2);
+  border-left: 3px solid var(--brand-cyan);
   border-radius: 8px;
+  background: #f8fafc;
+}
+
+/* ----- Files page ----- */
+
+.upload-container--wide {
+  max-width: 560px;
+}
+
+.button-link {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-cyan) 100%);
+  color: #ffffff;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.button-link:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.button-link.secondary {
+  background: #eef1f9;
+  color: var(--brand-navy);
+}
+
+.page-link {
+  margin-top: 12px;
+}
+
+.page-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.page-nav .button-link,
+.page-nav button {
+  width: auto;
+  flex: 1;
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+#loading,
+#empty {
+  text-align: center;
+  color: var(--brand-blue-2);
+  padding: 18px 0;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  border: 1px solid rgba(46, 72, 151, 0.2);
+  border-left: 3px solid var(--brand-cyan);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.file-info {
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 600;
+  color: var(--brand-ink);
+  overflow-wrap: anywhere;
+}
+
+.file-meta {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+button.download {
+  width: auto;
+  flex-shrink: 0;
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+button.download:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
 }

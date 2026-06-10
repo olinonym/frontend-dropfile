@@ -1,29 +1,13 @@
-﻿import { initializeApp } from "firebase/app";
-import {
-  getAuth,
+﻿import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged
 } from "firebase/auth";
 import {
-  getStorage,
   ref,
-  uploadBytes,
-  getDownloadURL
+  uploadBytes
 } from "firebase/storage";
-
-// Firebase config
-const app = initializeApp({
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-});
-
-const auth = getAuth(app);
-const storage = getStorage(app);
+import { auth, storage } from "./firebase.js";
 
 const $ = (id) => document.getElementById(id);
 let selectedFiles = [];

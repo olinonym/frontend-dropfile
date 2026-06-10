@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chiang Mai CD Supply — Uploaded Files</title>
+  <link rel="icon" type="image/png" href="/logo-cds.png" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body>
+  <div class="upload-container" id="signinNotice" hidden>
+    <img class="brand-logo" src="/logo-cds.png" alt="Chiang Mai CD Supply" />
+    <h2>Uploaded Files</h2>
+    <p>You need to sign in to view files.</p>
+    <a class="button-link" href="/index.html">Go to sign in</a>
+  </div>
+
+  <div class="upload-container upload-container--wide" id="app" hidden>
+    <img class="brand-logo brand-logo--small" src="/logo-cds.png" alt="Chiang Mai CD Supply" />
+    <h2>Uploaded Files</h2>
+    <p>Files in <code>uploads/</code> — click Download to save a copy.</p>
+
+    <div class="page-nav">
+      <a class="button-link secondary" href="/index.html">&larr; Back to upload</a>
+      <button id="refreshBtn" class="secondary">Refresh</button>
+    </div>
+
+    <div id="loading" hidden>Loading files…</div>
+    <div id="empty" hidden>No files in <code>uploads/</code> yet.</div>
+    <div id="listErr" class="message error" hidden></div>
+    <div id="fileList"></div>
+  </div>
+
+  <script type="module" src="/src/files.js"></script>
+</body>
+
+</html>
