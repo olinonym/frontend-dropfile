@@ -1,0 +1,170 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111827;
+  background: #f4f6f9;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 40%),
+    #f4f6f9;
+}
+
+.upload-container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #111827;
+  font-size: 26px;
+}
+
+p {
+  margin: 0 0 22px;
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+input[type='email'],
+input[type='password'],
+input[type='file'] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  color: #111827;
+  font-size: 15px;
+}
+
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='file']:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+button,
+button.secondary {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+button:hover,
+button.secondary:hover {
+  transform: translateY(-1px);
+}
+
+button.secondary {
+  background: #f3f4f6;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+#drop {
+  margin-top: 18px;
+  padding: 28px 18px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  text-align: center;
+  color: #4b5563;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+#drop:hover {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+#uploadBtn {
+  margin-top: 16px;
+}
+
+#status {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+
+#status li {
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #111827;
+  font-size: 14px;
+}
+
+.message {
+  width: 100%;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.message.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+@media (max-width: 480px) {
+  .upload-container {
+    padding: 24px;
+  }
+}
+
+#readyStatus {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.file-item {
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}

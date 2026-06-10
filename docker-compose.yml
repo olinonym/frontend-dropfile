@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: my-local-frontend
+    container_name: running-frontend
+    ports:
+      - "8080:80"
+    volumes:
+      # ✅ mount nginx.conf.template เข้าไปแทน default.conf
+      - ./nginx.conf.template:/etc/nginx/conf.d/default.conf:ro
+      # ✅ mount ไฟล์ build frontend (เช่น dist/) เข้าไปใน container
+      - ./dist:/usr/share/nginx/html:ro
+    restart: always
